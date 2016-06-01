@@ -1,0 +1,33 @@
+<%
+searchable = !brand.searchable_options.empty?
+searching = searchable && !review_option_filter.empty?
+%>
+<%= content_tag :div, class: "menu menu--margin #{'menu--no_search' unless searchable}", data: {search_url: ajax_path(aloading: '.page', except: [:order, :photo, :query, :page])} do %>
+  <ul class="menu__list">
+    <% unless widget.gallery_style? %>
+      <li class="menu__item group-container">
+        <%= content_tag :a, t('reviews.top_menu.show_photo_reviews'), class: "toggle_button search_trigger search_field #{'active' if photo}", data: {key: 'photo'} %>
+      </li>
+    <% end %>
+    <li class="menu__item sort-container">
+      <%= select_tag :order, options_for_select(ReviewSort.collection(review_sort_types), @review_sort), class: 'select2 menu__select search_trigger search_field' %>
+    </li>
+  </ul>
+<% end %>
+<div class="review_options_search_container">
+  <div class="review_options_search_container__description">
+    나와 같은 체형 <span class="review_options_search_container__description--strong">리얼리뷰</span> 골라보기
+  </div>
+  <%= content_tag :div, class: 'review_options_search' do %>
+    <ul class="review_option_types">
+      <% review_option_types.each do |option_type| %>
+        <%= content_tag_for :li, option_type, class: 'review_option_type' do %>
+          <!-- <div class="review_option_type__type_name"><%= option_type.name %></div> -->
+          <div>
+            <%= select_tag "option_#{option_type.id}", options_for_select(option_type.search_options, review_option_filter.value(option_type.id)), include_blank: option_type.name, class: 'select2 search_trigger search_field select_review_option', data: {width: '100%', drop_down_html: "<div class='select_review_option__drop_down'><i class='fa sort-down select_review_option__drop_down__icon'></i></div>".html_safe} %>
+          </div>
+        <% end %>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
