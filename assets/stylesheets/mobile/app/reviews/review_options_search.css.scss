@@ -41,9 +41,18 @@
   }
 }
 
+.review_option_type__name {
+  margin-right: 27px;
+  padding: 3px 8px;
+}
+
 .select_review_option {
+  position: absolute !important;
+  top: 0;
+  right: 0;
+
   .select2-chosen {
-    padding: 0 10px;
+    display: none !important;
   }
 }
 
