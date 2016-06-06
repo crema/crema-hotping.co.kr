@@ -56,3 +56,10 @@ $ ->
       if $.browser.msie
         $input.val(val.substr(0, maxlength))
       $limit_counter.html(0)
+
+$(document).on "change", "select.select2", (e) ->
+  $target = $(e.target)
+  if $target.data("keep-blank-value")
+    $option = $target.find("option[value='']")
+    if $option
+      $("#s2id_" + e.target.name + " .select2-chosen").html($option.text())
