@@ -5,7 +5,6 @@
     <%= render 'reviews/topbar_title' %>
     <div class="panel-body__menu"><%= render 'reviews/top_menu' %></div>
   <% end %>
-  <div class="page">
   <%= content_tag :div, class: "page #{'page--no_data' if @reviews.empty?}" do %>
     <% if @reviews.empty? %>
       <%= render 'common/reviews/no_reviews' %>
