@@ -39,7 +39,7 @@
         margin-right: 32px;
       }
 
-      span.sprites-icon-drop-down-s {
+      span.sprites-icon-drop-down-s, span.sprites-icon-drop-down-s-white {
         position: absolute;
         top: 12px;
         right: 9px;
@@ -76,6 +76,7 @@
       line-height: 20px;
       text-align: left;
       white-space: nowrap;
+      font-size: 18px;
     }
   }
 
