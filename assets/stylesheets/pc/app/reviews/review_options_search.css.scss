@@ -121,8 +121,12 @@ body.products {
 
 .review_options_search_container {
   text-align: center;
-  margin-top: 80px;
-  padding-bottom: 45px;
+  height: 128px;
+}
+
+.review_options_search_container--products_reviews {
+  padding-top: 36px;
+  padding-bottom: 89px;
   height: 128px;
 }
 
